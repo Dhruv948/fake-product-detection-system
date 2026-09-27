@@ -4,7 +4,8 @@ import pandas as pd
 import re
 
 # Load our dataset
-df = pd.read_csv('../dataset/reviews.csv')
+df = pd.read_csv('../dataset/cleaned_reviews.csv')
+df = df.dropna(subset=['cleaned_text'])
 
 # Function to clean a single review
 # Think of it as a text washing machine
@@ -21,6 +22,9 @@ def clean_text(text):
     text = text.strip()
     
     return text
+
+# dropna removes all rows where text_ column is empty
+df = df.dropna(subset=['text_'])
 
 # Apply our cleaning function to every review in text_ column
 df['cleaned_text'] = df['text_'].apply(clean_text)
