@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Product Detection System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER SECTION -->
+    <!-- The top bar of our website -->
+    <header>
+        <div class="header-content">
+            <h1>🛡️ Fake Product Detection</h1>
+            <p>Detect counterfeit products using AI & QR verification</p>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- API STATUS BAR -->
+        <!-- Shows if our backend is running or not -->
+        <div class="status-bar">
+            <span id="api-status" class="status-checking">
+                ⏳ Checking API connection...
+            </span>
+        </div>
+
+        <!-- TABS NAVIGATION -->
+        <!-- Tabs let users switch between 3 features -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('review')">
+                📝 Review Checker
+            </button>
+            <button class="tab-btn" onclick="showTab('verify')">
+                📱 QR Verifier
+            </button>
+            <button class="tab-btn" onclick="showTab('generate')">
+                ✨ QR Generator
+            </button>
+        </div>
+
+        <!-- TAB 1: REVIEW CHECKER -->
+        <div id="review-tab" class="tab-content active">
+            <div class="card">
+                <h2>📝 Check Product Review</h2>
+                <p class="description">
+                    Paste any product review below and our AI will tell you 
+                    if it looks fake or real.
+                </p>
+
+                <!-- textarea = multi-line text input box -->
+                <textarea 
+                    id="review-input" 
+                    placeholder="Paste your product review here..."
+                    rows="6"
+                ></textarea>
+
+                <button class="btn-primary" onclick="analyzeReview()">
+                    🔍 Analyze Review
+                </button>
+
+                <!-- Result box - hidden until we get a response -->
+                <div id="review-result" class="result-box hidden"></div>
+            </div>
+        </div>
+
+        <!-- TAB 2: QR VERIFIER -->
+        <div id="verify-tab" class="tab-content hidden">
+            <div class="card">
+                <h2>📱 Verify Product QR Code</h2>
+                <p class="description">
+                    Upload a product's QR code image and we'll check 
+                    if it's registered in our database.
+                </p>
+
+                <!-- File input - lets user upload an image -->
+                <div class="upload-area" onclick="document.getElementById('qr-input').click()">
+                    <p>📁 Click to upload QR code image</p>
+                    <p class="small-text">Supports PNG, JPG files</p>
+                    <!-- input type="file" opens file picker -->
+                    <input 
+                        type="file" 
+                        id="qr-input" 
+                        accept="image/*"
+                        onchange="previewQR(this)"
+                        style="display:none"
+                    >
+                </div>
+
+                <!-- Preview of uploaded QR image -->
+                <div id="qr-preview" class="hidden">
+                    <img id="qr-preview-img" src="" alt="QR Preview">
+                </div>
+
+                <button class="btn-primary" onclick="verifyQR()">
+                    ✅ Verify QR Code
+                </button>
+
+                <div id="verify-result" class="result-box hidden"></div>
+            </div>
+        </div>
+
+        <!-- TAB 3: QR GENERATOR -->
+        <div id="generate-tab" class="tab-content hidden">
+            <div class="card">
+                <h2>✨ Generate Product QR Code</h2>
+                <p class="description">
+                    Enter a product name to generate a unique QR code 
+                    and register it in our database.
+                </p>
+
+                <!-- Single line text input -->
+                <input 
+                    type="text" 
+                    id="product-input" 
+                    placeholder="Enter product name (e.g. iPhone 15 Pro)"
+                    class="text-input"
+                >
+
+                <button class="btn-primary" onclick="generateQR()">
+                    🎯 Generate QR Code
+                </button>
+
+                <div id="generate-result" class="result-box hidden"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>🛡️ Fake Product Detection System | Built with FastAPI + ML + QR Tech</p>
+    </footer>
+
+    <!-- Link to our JavaScript file -->
+    <!-- This must be at the bottom so HTML loads first -->
+    <script src="script.js"></script>
+
+</body>
+</html>
