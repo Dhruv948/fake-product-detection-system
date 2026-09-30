@@ -31,15 +31,9 @@
         <!-- TABS NAVIGATION -->
         <!-- Tabs let users switch between 3 features -->
         <div class="tabs">
-            <button class="tab-btn active" onclick="showTab('review')">
-                📝 Review Checker
-            </button>
-            <button class="tab-btn" onclick="showTab('verify')">
-                📱 QR Verifier
-            </button>
-            <button class="tab-btn" onclick="showTab('generate')">
-                ✨ QR Generator
-            </button>
+            <button class="tab-btn active" onclick="showTab('review', this)">📝 Review Checker</button>
+            <button class="tab-btn" onclick="showTab('verify', this)">📱 QR Verifier</button>
+            <button class="tab-btn" onclick="showTab('generate', this)">✨ QR Generator</button>
         </div>
 
         <!-- TAB 1: REVIEW CHECKER -->

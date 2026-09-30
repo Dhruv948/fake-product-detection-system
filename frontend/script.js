@@ -42,24 +42,18 @@ async function checkAPIConnection() {
 // TAB SWITCHING
 // ═══════════════════════════════════
 
-function showTab(tabName) {
-    // Hide ALL tab contents first
-    // querySelectorAll gets all elements with that class
+function showTab(tabName, btn) {
     document.querySelectorAll('.tab-content').forEach(tab => {
         tab.classList.add('hidden');
     });
 
-    // Remove active class from ALL tab buttons
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active');
+    document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('active');
     });
 
-    // Show only the selected tab
     document.getElementById(`${tabName}-tab`).classList.remove('hidden');
 
-    // Find which button was clicked and make it active
-    // event.target gives us the clicked element
-    event.target.classList.add('active');
+    btn.classList.add('active');
 }
 
 // ═══════════════════════════════════

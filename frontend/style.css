@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
+    color: white;
 }
 
 /* CSS Variables */
@@ -132,11 +133,10 @@ main {
     display: flex;
     gap: 8px;
     margin-bottom: 24px;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.15);
     padding: 6px;
     border-radius: 14px;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255,255,255,0.3);
 }
 
 .tab-btn {
@@ -144,7 +144,7 @@ main {
     padding: 11px;
     border: none;
     background: transparent;
-    color: var(--text-mid);
+    color: rgba(255,255,255,0.8) !important;
     border-radius: 10px;
     cursor: pointer;
     font-size: 0.85rem;
@@ -153,18 +153,16 @@ main {
 }
 
 .tab-btn:hover {
-    background: rgba(255,255,255,0.5);
-    color: var(--primary);
+    background: rgba(255,255,255,0.15);
+    color: white !important;
 }
 
 .tab-btn.active {
-    background: white;
-    color: var(--primary);
-    font-weight: 600;
-    /* Sharp clean shadow */
-    box-shadow: 0 2px 12px rgba(79, 70, 229, 0.15);
+    background: rgba(255,255,255,0.25);
+    color: white !important;
+    font-weight: 700;
+    border: 1px solid rgba(255,255,255,0.5);
 }
-
 /* ═══════════════════════════════════
    TAB CONTENT
 ═══════════════════════════════════ */
